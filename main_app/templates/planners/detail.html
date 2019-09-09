@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Planner Details</h1>
+    
+<div class="card">
+    <a href="{% url 'detail' planner.id %}">
+    <div class="card-content">
+        <span class="card-title">{{ planner.name }}</span>
+        <p>Brand: {{ planner.brand }}</p>
+        <p>Description: {{ planner.description }}</p>
+        {% if planner.year > 0 %}
+            <p>Year: {{ planner.year }}</p>
+            {% else %}
+            <p>Year: Undated</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
