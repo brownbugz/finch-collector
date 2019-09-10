@@ -9,7 +9,12 @@ class Planner(models.Model):  # Note that parens are optional if not inheriting 
     year = models.IntegerField()
 
     def __str__(self):
-        return f'{self.name} ({self.id})'
+        return self.name
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'planner_id': self.id})
+
+
+class Accessories(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(max_length=250)

@@ -1,11 +1,19 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Planner
 
 class PlannerCreate(CreateView):
     model = Planner
     fields = '__all__'
     success_url = '/planners/'
+
+class PlannerUpdate(UpdateView):
+  model = Planner
+  fields = ['brand', 'description', 'year']
+
+class PlannerDelete(DeleteView):
+  model = Planner
+  success_url = '/planners/'
 
 # Create your views here.
 def home(request):
