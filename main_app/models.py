@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Planner(models.Model):  # Note that parens are optional if not inheriting from another class
@@ -9,3 +10,6 @@ class Planner(models.Model):  # Note that parens are optional if not inheriting 
 
     def __str__(self):
         return f'{self.name} ({self.id})'
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'planner_id': self.id})

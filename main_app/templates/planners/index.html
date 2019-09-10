@@ -4,7 +4,7 @@
 <h1>Planner List</h1>
 
 {% for planner in planners %}
-    <a href="/planners/{{ planner.id }}"></a>
+    <a href="{% url 'detail' cat.id %}"></a>
         <div class="card">
             <div class="card-content">
                 <span class="card-title">{{ planner.name }}</span>

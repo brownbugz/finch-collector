@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Planner
+
+class PlannerCreate(CreateView):
+    model = Planner
+    fields = '__all__'
+    success_url = '/planners/'
 
 # Create your views here.
 def home(request):
