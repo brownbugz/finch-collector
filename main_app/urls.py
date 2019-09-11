@@ -9,5 +9,12 @@ urlpatterns = [
   path('planners/create/', views.PlannerCreate.as_view(), name='planners_create'),
   path('planners/<int:pk>/update/', views.PlannerUpdate.as_view(), name='planners_update'),
   path('planners/<int:pk>/delete/', views.PlannerDelete.as_view(), name='planners_delete'),
-  path('cats/<int:planner_id>/add_accessory/', views.add_accessory, name='add_accessory'),
+  path('planners/<int:planner_id>/add_accessory/', views.add_accessory, name='add_accessory'),
+  path('planners/<int:planner_id>/assoc_gadget/<int:gadget_id>/', views.assoc_gadget, name='assoc_gadget'),
+  path('planners/<int:planner_id>/unassoc_gadget/<int:gadget_id>/', views.unassoc_gadget, name='unassoc_gadget'),
+  path('gadgets/', views.GadgetList.as_view(), name='gadgets_index'),
+  path('gadgets/<int:pk>/', views.GadgetDetail.as_view(), name='gadgets_detail'),
+  path('gadgets/create/', views.GadgetCreate.as_view(), name='gadgets_create'),
+  path('gadgets/<int:pk>/update/', views.GadgetUpdate.as_view(), name='gadgets_update'),
+  path('gadgets/<int:pk>/delete/', views.GadgetDelete.as_view(), name='gadgets_delete'),
 ]
