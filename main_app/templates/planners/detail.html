@@ -42,7 +42,7 @@
         {% for accessory in planner.accessory_set.all %}
           <tr>
             <td>{{accessory.date}}</td>
-            <td>{{accessory.get_refill_display}}</td>
+            <td>{{accessory.get_season_display}}</td>
           </tr>
         {% endfor %}
       </tbody>

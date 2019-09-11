@@ -38,7 +38,7 @@ class Planner(models.Model):
 
 class Accessory(models.Model):
     date = models.DateField('accessory date')
-    refill = models.CharField(
+    season = models.CharField(
         max_length=2,
         choices=REFILLS,
         default=REFILLS[0][0]
@@ -46,7 +46,7 @@ class Accessory(models.Model):
     planner = models.ForeignKey(Planner, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.get_refill_display()} on {self.date}"
+        return f"{self.get_season_display()} on {self.date}"
 
     class Meta:
         ordering = ['-date']
