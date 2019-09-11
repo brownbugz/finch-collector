@@ -6,7 +6,7 @@ from .forms import AccessoryForm
 
 class PlannerCreate(CreateView):
     model = Planner
-    fields = '__all__'
+    fields = ['name', 'brand', 'description', 'year']
 
 class PlannerUpdate(UpdateView):
   model = Planner

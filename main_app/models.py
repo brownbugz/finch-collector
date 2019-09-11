@@ -9,8 +9,6 @@ REFILLS = (
     ('Fa', 'Fall')
 )
 
-# Create your models here.
-
 class Gadget(models.Model):
     name = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
@@ -21,7 +19,7 @@ class Gadget(models.Model):
     def get_absolute_url(self):
         return reverse('gadgets_detail', kwargs={'pk': self.id})
 
-class Planner(models.Model):  # Note that parens are optional if not inheriting from another class
+class Planner(models.Model): 
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
@@ -39,8 +37,8 @@ class Planner(models.Model):  # Note that parens are optional if not inheriting 
 
 
 class Accessory(models.Model):
-    date = models.DateField()
-    season = models.CharField(
+    date = models.DateField('accessory date')
+    refill = models.CharField(
         max_length=2,
         choices=REFILLS,
         default=REFILLS[0][0]
