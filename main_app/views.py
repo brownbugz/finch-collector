@@ -31,9 +31,8 @@ def planners_detail(request, planner_id):
     planner = Planner.objects.get(id=planner_id)
     gadgets_planner_doesnt_have = Gadget.objects.exclude(id__in = planner.gadgets.all().values_list('id'))
     accessory_form = AccessoryForm()
-    return render(request, 'planners/detail.html', 
-      { 
-        'planner': planner, 'accessory_form': accessory_form
+    return render(request, 'planners/detail.html', { 
+        'planner': planner, 'accessory_form': accessory_form,
         'gadgets': gadgets_planner_doesnt_have
     })
 
