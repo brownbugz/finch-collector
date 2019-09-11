@@ -45,8 +45,8 @@ def add_accessory(request, planner_id):
   return redirect('detail', planner_id=planner_id)
 
 def assoc_gadget(request, planner_id, gadget_id):
-  Cat.objects.get(id=cat_id).toys.add(toy_id)
-  return redirect('detail', cat_id=cat_id)
+  Planner.objects.get(id=planner_id).gadgets.add(gadget_id)
+  return redirect('detail', planner_id=planner_id)
 
 def unassoc_gadget(request, planner_id, gadget_id):
   Planner.objects.get(id=planner_id).gadgets.remove(gadget_id)
