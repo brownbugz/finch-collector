@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 REFILLS = (
     ('Wi', 'Winter'),
@@ -9,17 +10,32 @@ REFILLS = (
 )
 
 # Create your models here.
+
+class Gadget(models.Model):
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('gadgets_detail', kwargs={'pk': self.id})
+
 class Planner(models.Model):  # Note that parens are optional if not inheriting from another class
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     year = models.IntegerField()
+    gadgets = models.ManyToManyField(Gadget)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'planner_id': self.id})
+    
+    def accessorized_for_today(self):
+        return self.accessory_set.filter(date=date.today()).count() >= len(REFILLS)
 
 
 class Accessory(models.Model):
