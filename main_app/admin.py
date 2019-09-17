@@ -6,3 +6,4 @@ from .models import Planner, Accessory, Gadget
 admin.site.register(Planner)
 admin.site.register(Accessory)
 admin.site.register(Gadget)
+admin.site.register(Photo)
