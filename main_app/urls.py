@@ -18,4 +18,5 @@ urlpatterns = [
   path('gadgets/create/', views.GadgetCreate.as_view(), name='gadgets_create'),
   path('gadgets/<int:pk>/update/', views.GadgetUpdate.as_view(), name='gadgets_update'),
   path('gadgets/<int:pk>/delete/', views.GadgetDelete.as_view(), name='gadgets_delete'),
+  path('accounts/signup', views.signup, name='signup'),
 ]
