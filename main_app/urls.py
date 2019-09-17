@@ -12,6 +12,7 @@ urlpatterns = [
   path('planners/<int:planner_id>/add_accessory/', views.add_accessory, name='add_accessory'),
   path('planners/<int:planner_id>/assoc_gadget/<int:gadget_id>/', views.assoc_gadget, name='assoc_gadget'),
   path('planners/<int:planner_id>/unassoc_gadget/<int:gadget_id>/', views.unassoc_gadget, name='unassoc_gadget'),
+  path('planners/<int:planner_id>/add_photo/', views.add_photo, name='add_photo'),
   path('gadgets/', views.GadgetList.as_view(), name='gadgets_index'),
   path('gadgets/<int:pk>/', views.GadgetDetail.as_view(), name='gadgets_detail'),
   path('gadgets/create/', views.GadgetCreate.as_view(), name='gadgets_create'),
