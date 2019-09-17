@@ -61,7 +61,7 @@ def add_accessory(request, planner_id):
   return redirect('detail', planner_id=planner_id)
 
 @login_required
-def add_photo(request, cat_id):
+def add_photo(request, planner_id):
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
     s3 = boto3.client('s3')
