@@ -21,6 +21,17 @@
         <a href="{% url 'planners_delete' planner.id %}">Delete</a>
       </div>
     </div>
+    {% for photo in planner.photo_set.all %}
+      <img class="responsive-img card-panel" src="{{photo.url}}">
+    {% empty %}
+      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %}
+    <form action="{% url 'add_photo' planner.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+      {% csrf_token %}
+      <input type="file" name="photo-file">
+      <br><br>
+      <input type="submit" class="btn" value="Upload Photo">
+    </form>    
   </div>
   <div class="col s6">
     <form action="{% url 'add_accessory' planner.id %}" method="post">
@@ -54,7 +65,7 @@
 <hr>
 <div class="row">
   <div class="col s6">
-    <h3>{{ planner.name }}'s Toys</h3>
+    <h3>{{ planner.name }}'s Gadgets</h3>
     {% if planner.gadgets.count %}
       {% for gadget in planner.gadgets.all %}
         <div class="card">

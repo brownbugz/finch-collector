@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Planner, Accessory, Gadget
+from .models import Planner, Accessory, Gadget, Photo
 
 # Register your models here.
 
